@@ -1,45 +1,33 @@
+/* Estilos generales y reseteo */
 *, *::before, *::after {
   box-sizing: border-box;
-  margin: 5;
-  padding: 2;
+  margin: 0;
+  padding: 0;
 }
 
-.keania-one-regular {
-  font-family: "Keania One", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-
-.navbar {
-  display: flex;
-  justify-content: space-between; /* Logo a la izquierda, links a la derecha */
-  align-items: center;            /* Centrado vertical */
-  padding: var(--space-sm) var(--space-lg);
-}
-
-
-@media (min-width: 768px) {
-  .features-grid {
-    grid-template-columns: repeat(2, 1fr);  /* Tablet: 2 columnas */
-  }
-}
-
-@media (min-width: 1024px) {
-  .features-grid {
-    grid-template-columns: repeat(3, 1fr);  /* Desktop: 3 columnas */
-  }
-}
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  font-family: "Keania One", sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
   line-height: 1.6;
-  color: #9c3434;
- background: #60aedb;
-background: linear-gradient(0deg,rgba(96, 174, 219, 1) 0%, rgba(64, 64, 64, 1) 100%);
+  color: #d1d5db;
+  background: #37392C;
+  background: linear-gradient(0deg, rgba(55, 57, 44, 1) 0%, rgba(23, 24, 17, 1) 100%);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Canvas para la lluvia de fondo */
+#lluviaCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1; /* Lo envía al fondo detrás de todo */
+  pointer-events: none; /* Permite hacer clic a través de la lluvia */
 }
 
 img {
@@ -47,76 +35,129 @@ img {
   height: auto;
   display: block;
 }
+
+h1, h2 {
+  font-family: "Keania One", sans-serif;
+  margin: 0 0 12px 0;
+  color: #ffffff; /* Blanco para buen contraste */
+  font-weight: 700;
+}
+
 h1 {
-  font-family: "Keania One", sans-serif;
-  margin: 0 0 12px 0;
-  color: #9c3434;
-  font-size: 1.5rem;
-  font-weight: 700;
+  font-size: 2.5rem;
 }
+
 h2 {
-  font-family: "Keania One", sans-serif;
-  margin: 0 0 12px 0;
-  color: #9c3434;
-  font-size: 1.5rem;
-  font-weight: 700;
+  font-size: 1.8rem;
 }
 
-/* Texto secundario */
 p {
-  font-family: "Keania One", sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
   margin: 0;
-  color: #9c3434;
+  color: #b5b8a9;
   line-height: 1.5;
-  font-size: 1rem
-  }
+  font-size: 1rem;
+}
 
-/* Base: Mobile */
-@media (min-width:  640px) {
-.hero {
+/* Header y Navegación */
+header {
+  background: rgba(23, 24, 17, 0.85);
+  backdrop-filter: blur(5px);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  padding: 1rem 2rem;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #9c3434;
+}
+
+/* Secciones principales */
+main {
+  padding: 2rem 1rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+section {
+  padding: 4rem 1rem;
   text-align: center;
-  padding: var(--space-xl) var(--space-sm);
 }
 
-.hero h1 {
-  font-size: var(--font-size-2xl);
-  line-height: 1.2;
-}
-body {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  line-height: 1.6;
-  color: #9c3434;
- background: #37392C;
-background: linear-gradient(0deg, rgba(55, 57, 44, 1) 0%, rgba(23, 24, 17, 1) 100%);
-}
-.hero p {
-  font-size: var(--font-size-base);
-  color: var(--color-text-muted);
-  margin-top: var(--space-sm);
-}
+.btn-cta {
+  display: inline-block;
+  background-color: #9c3434;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 1rem;
+  transition: background 0.3s;
 }
 
-/* Tablet */
-@media (min-width: 768px) {
-  .hero {
-    padding: var(--space-2xl) var(--space-lg);
-  }
+.btn-cta:hover {
+  background-color: #7b2929;
+}
 
-  .hero h1 {
-    font-size: var(--font-size-3xl);
-  }
+/* Formulario */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: left;
+}
 
-  body {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  line-height: 1.6;
-  color: #9c3434;
-  background: #3f6391;
-  background: linear-gradient(0deg,rgba(63, 99, 145, 1) 0%, rgba(130, 130, 130, 1) 100%);
-  }
+label {
+  color: #ffffff;
+  font-weight: bold;
+}
 
-  .hero p {
-    font-size: var(--font-size-lg);
-    max-width: 600px;
-    margin-inline: auto;
-  }
+input, textarea {
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-family: inherit;
+}
+
+button[type="submit"] {
+  background-color: #9c3434;
+  color: white;
+  border: none;
+  padding: 0.75rem;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button[type="submit"]:hover {
+  background-color: #7b2929;
+}
+
+footer {
+  text-align: center;
+  padding: 2rem;
+  color: #b5b8a9;
+  font-size: 0.9rem;
 }

@@ -5,63 +5,60 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Descripción del proyecto para SEO">
   <title>After The Storm - ATS</title>
-  <link rel="stylesheet" href="style.css">
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Keania+One&display=swap" rel="stylesheet">
+  
+  <!-- Enlace al archivo CSS -->
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+
+  <!-- Canvas de Lluvia de Fondo -->
+  <canvas id="lluviaCanvas"></canvas>
+
   <header>
     <nav aria-label="Navegación principal">
       <a href="#hero">Inicio</a>
       <a href="#history">Historia</a>
-      
       <a href="#caracters">Personajes</a>
       <a href="#news">Noticias</a>
       <a href="#studio">Black Studios</a>
-      
     </nav>
   </header>
 
   <main>
     <section id="hero" aria-labelledby="hero-title">
       <h1 id="hero-title">ATS</h1>
-      <h2 id="hero-title">After The Storm</h2> 
+      <h2>After The Storm</h2> 
 
       <a href="/pre-registro-page" class="btn-cta">Pre-registro</a>
       
-      <p>ATS (After The Storm)Es una aventura narrativa en la cual conoceremos los hechos de una de las operaciones mas 
-        controverciales en la historia mas reciente de México.</p>
-     <!-- <a href="#studio">Black Studios</a>-->
+      <p style="margin-top: 1.5rem;">ATS (After The Storm) es una aventura narrativa en la cual conoceremos los hechos 
+        de una de las operaciones más controversiales en la historia más reciente de México.</p>
     </section>
 
     <section id="history" aria-labelledby="history-title">
       <h2 id="history-title">Historia</h2>
-      <p>En el año 2006 durante una operacion encubierta contra grupos delictivos 
-        algo salio mal, pero fue encubierto y olvidado, hasta la llegada de la nueva 
-        presidenta la cual comenzo a reabrir informes y carpertas de investigacion 
-        y es en ese contexto cuando el gobierno reabre y cuestiona el informe de la
-         operacion "After The Storm"
-      </p>
-      <!-- Tarjetas de features -->
+      <p>En el año 2006 durante una operación encubierta contra grupos delictivos algo salió mal, pero fue encubierto y olvidado, 
+        hasta la llegada de la nueva presidenta la cual comenzó a reabrir informes y carpetas de investigación y es en ese contexto cuando
+        el gobierno reabre y cuestiona el informe de la operación "After The Storm".</p>
     </section>
 
     <section id="caracters" aria-labelledby="caracters-title">
       <h2 id="caracters-title">Personajes</h2>
-      <!-- Contenido descriptivo -->
+      <p>Próximamente conocerás a los protagonistas de esta historia.</p>
     </section>
 
-     <section id="news" aria-labelledby="news-title">
+    <section id="news" aria-labelledby="news-title">
       <h2 id="news-title">Noticias</h2>
-      <p>ATS comenzo su etapa de produccion y pronto tendremos una DEMO
-        que probar 
-      </p>
-      <!-- Contenido descriptivo -->
+      <p>ATS comenzó su etapa de producción y pronto tendremos una DEMO que probar.</p>
     </section>
 
     <section id="studio" aria-labelledby="studio-title">
-      <h2 id="Studio-title">Black Studios</h2>
+      <h2>Black Studios</h2>
       <form id="contact-form" action="#" method="POST">
         <label for="name">Nombre</label>
         <input type="text" id="name" name="name" required>
@@ -70,7 +67,7 @@
         <input type="email" id="email" name="email" required>
 
         <label for="message">Mensaje</label>
-        <textarea id="message" name="message" required></textarea>
+        <textarea id="message" name="message" rows="4" required></textarea>
 
         <button type="submit">Enviar</button>
       </form>
@@ -80,5 +77,8 @@
   <footer>
     <p>&copy; 2026 ATS. Todos los derechos reservados.</p>
   </footer>
+
+  <!-- Enlace al archivo JavaScript -->
+  <script src="script.js"></script>
 </body>
 </html>
