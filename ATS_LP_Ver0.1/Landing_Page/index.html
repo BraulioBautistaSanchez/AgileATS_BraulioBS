@@ -59,17 +59,24 @@
 
     <section id="studio" aria-labelledby="studio-title">
       <h2>Black Studios</h2>
-      <form id="contact-form" action="#" method="POST">
-        <label for="name">Nombre</label>
-        <input type="text" id="name" name="name" required>
+      <form id="auth-form" onsubmit="handleRegister(event)">
+  <div class="input-group">
+    <label for="user-name">Nombre</label>
+    <input type="text" id="user-name" placeholder="Tu Nombre o Nickname" required />
+  </div>
 
-        <label for="email">Correo electrónico</label>
-        <input type="email" id="email" name="email" required>
+  <div class="input-group">
+    <label for="user-email">Correo electrónico</label>
+    <input type="email" id="user-email" placeholder="Correo electrónico" required />
+  </div>
 
-        <label for="message">Mensaje</label>
-        <textarea id="message" name="message" rows="4" required></textarea>
+  <div class="input-group">
+    <label for="user-social">Red social (opcional)</label>
+    <input type="text" id="user-social" placeholder="Usuario de Instagram / Twitter (opcional)" />
+  </div>
 
-        <button type="submit">Enviar</button>
+  <button type="submit" class="btn-start">Registrarse e Ingresar</button>
+</form>
       </form>
     </section>
   </main>
