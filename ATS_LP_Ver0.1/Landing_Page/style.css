@@ -1,3 +1,22 @@
+:root{
+
+
+  /*Colores*/
+
+  --color-fondo: #0e0f0a;
+  --color-superficie: #1a1b14;
+  --color-borde: #3a3c2e;
+  --color-texto: #d9d5c7;
+  --color-texto-suave: #9a9786;
+  --color-acento: #9c3434;
+  --color-acento-hover: #b84545;
+  
+  /*Tipografía*/
+  --fuente-titulos: "Keania One", sans-serif;
+  --fuente-cuerpo: "Barlow", system-ui, sans-serif;
+
+}
+
 /* Estilos generales y reseteo */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -10,10 +29,9 @@ html {
 }
 
 body {
-  font-family: "Keania One", sans-serif;
+  font-family: var(--fuente-cuerpo);
   line-height: 1.6;
-  color: #9c3434;
-  background: #37392C;
+  color: var(--color-texto);
   background: linear-gradient(0deg, rgba(55, 57, 44, 1) 0%, rgba(23, 24, 17, 1) 100%);
   min-height: 100vh;
   overflow-x: hidden;
@@ -36,11 +54,17 @@ img {
   display: block;
 }
 
+h1, h2, nav a, .btn-cta, button,label {
+font-family: var(--fuente-titulos);
+font-weight: 400;
+letter-spacing: 0.05em;
+text-transform: uppercase;
+}
+
 h1, h2 {
-  font-family: "Keania One", sans-serif;
+ color: var(--color-texto);
   margin: 0 0 12px 0;
-  color: #9c3434;
-  font-weight: 700;
+  font-family: var(--fuente-titulos);
 }
 
 h1 {
@@ -52,17 +76,17 @@ h2 {
 }
 
 p {
-  font-family: "Keania One", sans-serif;
-  margin: 0;
-  color: #9c3434;
+  font-family: var(--fuente-cuerpo);
+  color: var(--color-texto);
   line-height: 1.5;
   font-size: 1rem;
 }
 
 /* Header y Navegación */
 header {
-  background: rgba(23, 24, 17, 0.85);
+  background: rgba(14, 15, 10, 0.85);
   backdrop-filter: blur(5px);
+  border-bottom: 1px solid var(--color-borde);
   position: sticky;
   top: 0;
   z-index: 10;
@@ -78,44 +102,90 @@ nav {
 }
 
 nav a {
-  font-family: "Keania One", sans-serif;
-  color: #ffffff;
+  color: var(--color-texto);
   text-decoration: none;
   font-size: 1.1rem;
-  transition: color 0.3s;
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
+  transition: color 0.3s, border-color 0.3s;
 }
 
 nav a:hover {
-  color: #9c3434;
+  color: #ffffff;
+  border-bottom-color: var(--color-acento);
 }
 
 /* Secciones principales */
 main {
-  padding: 2rem 1rem;
-  max-width: 900px;
-  margin: 0 auto;
+
 }
 
-section {
-  padding: 4rem 1rem;
-  text-align: center;
+section:not(#hero) {
+ max-width: 900px;
+ margin-inline: auto;
+}
+
+#hero{
+
+  min-height: calc(100vh - 4.5rem);
+  display:flex;
+  flex-direction:column;      
+  align-items: center;          
+  justify-content: center;     
+  text-align: center;          
+  padding: 2rem clamp(1rem, 5vw, 4rem);  
+
+ 
+}
+
+.hero-contenido {
+  max-width: 700px;
+  position: relative;
+  z-index: 2;                         
+}
+
+#hero h1 {
+  font-size: clamp(4rem, 14vw, 8rem); 
+  line-height: 1;
+  letter-spacing: 0.12em;
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.8);
+   background:
+    linear-gradient(rgba(14, 15, 10, 0.55), rgba(14, 15, 10, 0.92)),
+    radial-gradient(circle at 50% 30%, #3b3e2c 0%, #14150e 70%);
+  box-shadow: inset 0 0 160px 40px rgba(0, 0, 0, 0.85);
+}
+
+#hero h2 {
+  font-size: clamp(1rem, 3vw, 1.5rem);
+  letter-spacing: 0.35em;
+  color: var(--color-texto-suave);
+  margin-bottom: 1.5rem;
+}
+
+#hero p {
+  max-width: 55ch;                   
+  margin: 1.5rem auto 0;
+}
+
+#hero .btn-cta {
+  padding: 1rem 2.5rem;
+  font-size: 1.2rem;
 }
 
 .btn-cta {
-  font-family: "Keania One", sans-serif;
   display: inline-block;
-  background-color: #9c3434;
+  background-color: var(--color-acento);
   color: white;
   padding: 0.75rem 1.5rem;
-  border-radius: 5px;
+  min-height: 44px;
+  border-radius: 0;
   text-decoration: none;
-  font-weight: bold;
   margin-top: 1rem;
   transition: background 0.3s;
 }
 
 .btn-cta:hover {
-  background-color: #7b2929;
+  background-color: var(--color-acento-hover);
 }
 
 /* Formulario */
@@ -128,41 +198,53 @@ form {
   text-align: left;
 }
 
+.input-group{
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
 label {
-  font-family: "Keania One", sans-serif;
-  color: #9c3434;
-  font-weight: bold;
+  color: var(--color-texto);
 }
 
 input, textarea {
-  font-family: "Keania One", sans-serif;
-  padding: 0.5rem;
-  border-radius: 4px;
-  border: 1px solid rgba(156, 52, 52, 0.4);
+  font-family: var(--fuente-cuerpo);
+  padding: 0.6rem 0.75rem;
+  border-radius: 0;
+  border: 1px solid var(--color-borde);
   background: rgba(255, 255, 255, 0.1);
-  color: #9c3434;
+  color: var(--color-texto);
 }
 
 button[type="submit"] {
-  font-family: "Keania One", sans-serif;
-  background-color: #9c3434;
+  background-color: var(--color-acento);
   color: white;
   border: none;
   padding: 0.75rem;
-  font-weight: bold;
-  border-radius: 4px;
+  min-height: 44px;
+  border-radius: 0;
   cursor: pointer;
   transition: background 0.3s;
 }
 
 button[type="submit"]:hover {
-  background-color: #7b2929;
+  background-color: var(--color-acento-hover);
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--color-acento-hover);
+  outline-offset: 3px;
 }
 
 footer {
-  font-family: "Keania One", sans-serif;
+  font-family: var(--fuente-cuerpo);
   text-align: center;
   padding: 2rem;
-  color: #9c3434;
+  color: var(--color-texto-suave);
   font-size: 0.9rem;
+  border-top: 1px solid var(--color-borde);
 }
