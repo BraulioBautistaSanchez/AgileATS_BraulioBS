@@ -26,7 +26,7 @@ function animar() {
   ctx.fillRect(0, 0, canvas.width, canvas.height);
   
   // Color de la lluvia (blanco/azulado semitransparente)
-  ctx.strokeStyle = 'rgba(174, 194, 224, 0.5)';
+  ctx.strokeStyle = 'rgba(20, 39, 66, 0.5)';
   ctx.lineCap = 'round';
 
   for (let i = 0; i < gotas.length; i++) {
